@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,15 +53,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				// Custom colors for ShadowByte
+				cyber: {
+					black: '#0D0D0D', 
+					darkgray: '#111921',
+					green: '#00FF41',
+					blue: '#0099FF',
+					red: '#FF073A',
 				}
 			},
 			borderRadius: {
@@ -70,26 +69,63 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'glitch': {
+					'0%': { transform: 'translate(0)' },
+					'20%': { transform: 'translate(-3px, 3px)' },
+					'40%': { transform: 'translate(-3px, -3px)' },
+					'60%': { transform: 'translate(3px, 3px)' },
+					'80%': { transform: 'translate(3px, -3px)' },
+					'100%': { transform: 'translate(0)' }
+				},
+				'text-glitch': {
+					'0%': { opacity: '1' },
+					'2%': { opacity: '0.8' },
+					'4%': { opacity: '0.9' },
+					'8%': { opacity: '0.7' },
+					'10%': { opacity: '1' },
+					'30%': { opacity: '1' },
+					'32%': { opacity: '0.4' },
+					'34%': { opacity: '0.8' },
+					'36%': { opacity: '1' },
+					'74%': { opacity: '1' },
+					'76%': { opacity: '0.7' },
+					'78%': { opacity: '1' },
+					'100%': { opacity: '1' }
+				},
+				'flicker': {
+					'0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': {
+						opacity: '0.99',
+						filter: 'drop-shadow(0 0 1px rgba(0, 255, 65, 0.7)) drop-shadow(0 0 5px rgba(0, 255, 65, 0.4))'
 					},
-					to: {
-						height: '0'
+					'20%, 21.999%, 63%, 63.999%, 65%, 69.999%': {
+						opacity: '0.4',
+						filter: 'none'
 					}
+				},
+				'digital-rain': {
+					'0%': { top: '-100%' },
+					'100%': { top: '100%' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glitch': 'glitch 0.8s infinite',
+				'text-glitch': 'text-glitch 3s infinite',
+				'flicker': 'flicker 4s linear infinite',
+				'digital-rain': 'digital-rain 10s linear infinite'
+			},
+			fontFamily: {
+				'mono': ['JetBrains Mono', 'monospace'],
+				'cyber': ['Share Tech Mono', 'JetBrains Mono', 'monospace']
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
